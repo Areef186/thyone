@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center; /* Center items vertically */
+        }
+        header img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .book {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+        }
+        .book img {
+            width: 150px;
+            height: 200px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://upload.wikimedia.org/wikipedia/ms/d/da/Lencana_Sekolah_Menengah_Kebangsaan_Aminuddin_Baki%2C_Kuala_Lumpur.jpg" alt="Library Logo">
+    <h1>Welcome to The Library of SMK Aminuddin Baki</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="showBooks()">Books</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section id="booksSection" style="display: none;">
+    <h2>Our Books</h2>
+    <div id="bookList">
+        <!-- Books will be added dynamically here -->
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Library Website. All rights reserved.</p>
+</footer>
+
+<script>
+    function showBooks() {
+        var booksSection = document.getElementById("booksSection");
+        booksSection.style.display = "block";
+
+        var bookList = document.getElementById("bookList");
+        // Clear any existing content
+        bookList.innerHTML = "";
+
+        // Example books (you can add more books here)
+        var books = [
+            {title: "Book 1", image: "https://cdn.kobo.com/book-images/a8c026c3-7478-467b-89e6-32fabac4d200/353/569/90/False/enid-blyton-s-summer-stories.jpg"},
+            {title: "Book 2", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcDRPf8ZhyVZECGJv6ZH0j227GB8w68Lo6wfgi1ntoxg&s.jpg"},
+            {title: "Book 3", image: "https://m.media-amazon.com/images/I/51qNE4Dc0bL.jpg"}
+        ];
+
+        // Loop through books and create HTML elements for each book
+        books.forEach(function(book) {
+            var bookDiv = document.createElement("div");
+            bookDiv.classList.add("book");
+
+            var bookTitle = document.createElement("p");
+            bookTitle.textContent = book.title;
+
+            var bookImage = document.createElement("img");
+            bookImage.src = book.image;
+
+            bookDiv.appendChild(bookImage);
+            bookDiv.appendChild(bookTitle);
+            bookList.appendChild(bookDiv);
+        });
+    }
+</script>
+
+</body>
+</html>
